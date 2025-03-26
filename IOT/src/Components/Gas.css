@@ -1,0 +1,15 @@
+/* Gas Sensor Heading */
+.gas-heading {
+    text-align: center;
+    font-size: 1.5rem; /* Smaller font size */
+    font-weight: 400; /* Decreased font weight */
+    color: white; /* White text */
+}
+
+/* Gas Status Text */
+.gas-status {
+    text-align: center;
+    font-size: 1.5rem; /* Smaller font size */
+    font-weight: 400; /* Decreased font weight */
+    color: white; /* White text */
+}

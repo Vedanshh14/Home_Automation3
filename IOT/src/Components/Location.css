@@ -1,0 +1,36 @@
+.location-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically if needed */
+    margin: 0 auto; /* Center horizontally */
+    width: fit-content; /* Adjust width based on content */
+    border-bottom: solid 1px white;
+    padding-bottom: 10px;
+}
+
+
+/* Center the heading and adjust font size & weight */
+.location-heading {
+    text-align: center;
+    font-size: 1.5rem; /* Smaller font size */
+    font-weight: 400; /* Decreased font weight */
+    color: white; /* White text */
+}
+
+/* Style the button */
+.location-button {
+    display: block;
+    margin: 10px auto; /* Center the button */
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 300;
+    color: white; /* Text color */
+    background-color: black; /* Button background color */
+    border: 3px solid white; /* White border */
+    border-radius: 10px; /* Curved button */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+

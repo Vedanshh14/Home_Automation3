@@ -1,0 +1,64 @@
+/* Light Theme Heading */
+.light-heading {
+    text-align: center;
+    font-size: 1.5rem; /* Smaller font size */
+    font-weight: 400; /* Decreased font weight */
+    color: white; /* White text */
+}
+
+.radio-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    gap: 20px; /* Space between radio buttons */
+    margin-bottom: 20px;
+}
+
+.light-label {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between radio button and text */
+}
+
+
+/* Style the radio buttons */
+.light-label input {
+    accent-color: rgb(0, 152, 234); /* White selection indicator */
+    transform: scale(1.2);
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+/* Style the color picker */
+.pallette {
+  
+    display: block;
+    margin: 10px auto; /* Center the picker */
+    width: 150px; /* Adjust size */
+    height: 150px;
+    border-radius: 10px;
+    border: 2px solid white; /* White border */
+}
+ .rgbcontainer{
+    border-bottom: solid 1px white;
+    padding-bottom: 10px;
+ }
+/* Style the Set Color button */
+.set-button {
+    display: block;
+    margin: 10px auto; /* Center the button */
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 300;
+    color: white; /* Text color */
+    background-color: black; /* Button background color */
+    border: 3px solid white; /* White border */
+    border-radius: 10px; /* Curved button */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Button hover effect
+.set-button:hover {
+    background-color: white;
+    color: black;
+} */

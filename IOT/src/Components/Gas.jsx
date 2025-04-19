@@ -1,7 +1,7 @@
 import './gas.css'; 
 import { useState, useEffect } from "react";
 
-function Gas({ readApiKey, channelId, gas, setGas }) {
+function Gas({ GasreadApiKey, GaschannelId, gas, setGas }) {
     const [beepSound, setBeepSound] = useState(null);
 
     // Initialize beep sound
@@ -12,12 +12,12 @@ function Gas({ readApiKey, channelId, gas, setGas }) {
 
     // Function to fetch gas status from ThingSpeak
     const fetchGasStatus = () => {
-        if (!readApiKey || !channelId) {
+        if (!GasreadApiKey || !GaschannelId) {
             console.error("API Key or Channel ID is missing!");
             return;
         }
 
-        const url = `https://api.thingspeak.com/channels/${channelId}/feeds/last.json?api_key=${readApiKey}`;
+        const url = `https://api.thingspeak.com/channels/${GaschannelId}/feeds/last.json?api_key=${GasreadApiKey}`;
 
         fetch(url)
             .then(response => {
@@ -25,11 +25,11 @@ function Gas({ readApiKey, channelId, gas, setGas }) {
                 return response.json();
             })
             .then(data => {
-                if (data && data.field3 !== undefined) {
-                    let gasValue = parseInt(data.field3) === 1 ? 1 : 0; // Ensure it's only 0 or 1
+                if (data && data.field1 !== undefined) {
+                    setGas(parseInt(data.field1) === 1 ? 1 : 0); // Ensure it's only 0 or 1
                     // gasValue=0;
                     // gasValue=1;
-                    setGas(gasValue);
+                    // setGas(gasValue);
                 }
             })
             .catch(error => {
@@ -50,10 +50,10 @@ function Gas({ readApiKey, channelId, gas, setGas }) {
         }
     }, [gas, beepSound]); // Now this runs whenever gas changes
 
-    // Fetch gas data every 3 seconds
+    // Fetch gas data every 2 seconds
     useEffect(() => {
         fetchGasStatus(); // Initial fetch
-        const interval = setInterval(fetchGasStatus, 3000);
+        const interval = setInterval(fetchGasStatus, 1000);
         return () => clearInterval(interval); // Cleanup interval
     }, []); // Fetching only on mount
 

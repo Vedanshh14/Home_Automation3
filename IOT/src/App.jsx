@@ -5,18 +5,20 @@ import Gas from "./Components/Gas";
 import { useState, useEffect } from "react";
 
 function App() {
-    // const WriteApiKey = "PK3S0ACP4IK1UBL6"; // Replace with your actual ThingSpeak API Key
-    // const ReadApiKey = "GJ0KBPKT65YZYMUI";
-    // const channelId = "2823585";
+    const WriteApiKey = "PK3S0ACP4IK1UBL6"; // Replace with your actual ThingSpeak API Key
+    const ReadApiKey = "GJ0KBPKT65YZYMUI";
+    const channelId = "2823585";
+    const GasReadApiKey = "GYW7WE439W5JALQB";
+    const GaschannelId = "2893884";
 
-    const WriteApiKey = import.meta.env.VITE_WRITE_API_KEY;
-    const ReadApiKey = import.meta.env.VITE_READ_API_KEY;
-    const channelId = import.meta.env.VITE_CHANNEL_ID;
+    // const WriteApiKey = import.meta.env.VITE_WRITE_API_KEY;
+    // const ReadApiKey = import.meta.env.VITE_READ_API_KEY;
+    // const channelId = import.meta.env.VITE_CHANNEL_ID;
 
 
     // State for all fields
-    const [latitude, setLatitude] = useState(0);
-    const [longitude, setLongitude] = useState(0);
+    const [latitude, setLatitude] = useState(22.7195687);
+    const [longitude, setLongitude] = useState(75.8808462);
     // initialise location as current location as nhi kr toh null jaegi cloud p..
     // ek bar toh krna hi pdegi initialise
     // useEffect(() => {
@@ -66,39 +68,39 @@ function App() {
         console.log("Gas:", gas);
         console.log("RGB:", rgb);
         console.log("Save Point:", savePoint);
-    }, [latitude, longitude,  rgb, savePoint]);
+    }, [latitude, longitude, rgb, savePoint]);
 
 
     // Function to fetch latest values from ThingSpeak
-//     const fetchLatestValues = () => {
-//         const url = `https://api.thingspeak.com/channels/${channelId}/feeds/last.json?api_key=${ReadApiKey}`;
-//         fetch(url)
-//             .then(response => response.json())
-//             .then(data => {
-//                 if (data) {
-//                     setLatitude(data.field1 || latitude);
-//                     setLongitude(data.field2 || longitude);
-//                     setGas(data.field3 ? parseInt(data.field3) : gas);
-//                     setRgb({
-//                         r: data.field5 ? parseInt(data.field5) : rgb.r,
-//                         g: data.field6 ? parseInt(data.field6) : rgb.g,
-//                         b: data.field7 ? parseInt(data.field7) : rgb.b
-//                     });
-//                     setSavePoint(data.field8 ? parseInt(data.field8) : savePoint);
+    //     const fetchLatestValues = () => {
+    //         const url = `https://api.thingspeak.com/channels/${channelId}/feeds/last.json?api_key=${ReadApiKey}`;
+    //         fetch(url)
+    //             .then(response => response.json())
+    //             .then(data => {
+    //                 if (data) {
+    //                     setLatitude(data.field1 || latitude);
+    //                     setLongitude(data.field2 || longitude);
+    //                     setGas(data.field3 ? parseInt(data.field3) : gas);
+    //                     setRgb({
+    //                         r: data.field5 ? parseInt(data.field5) : rgb.r,
+    //                         g: data.field6 ? parseInt(data.field6) : rgb.g,
+    //                         b: data.field7 ? parseInt(data.field7) : rgb.b
+    //                     });
+    //                     setSavePoint(data.field8 ? parseInt(data.field8) : savePoint);
 
-//                     // Console log fetched values
-//                     console.log(`Fetched Data:
-// lat: ${data.field1 || latitude}
-// long: ${data.field2 || longitude}
-// r: ${data.field5 ? parseInt(data.field5) : rgb.r}
-// g: ${data.field6 ? parseInt(data.field6) : rgb.g}
-// b: ${data.field7 ? parseInt(data.field7) : rgb.b}
-// gas: ${data.field3 ? parseInt(data.field3) : gas}
-// save point: ${data.field8 ? parseInt(data.field8) : savePoint}`);
-//                 }
-//             })
-//             .catch(error => console.error("Error fetching latest values:", error));
-//     };
+    //                     // Console log fetched values
+    //                     console.log(`Fetched Data:
+    // lat: ${data.field1 || latitude}
+    // long: ${data.field2 || longitude}
+    // r: ${data.field5 ? parseInt(data.field5) : rgb.r}
+    // g: ${data.field6 ? parseInt(data.field6) : rgb.g}
+    // b: ${data.field7 ? parseInt(data.field7) : rgb.b}
+    // gas: ${data.field3 ? parseInt(data.field3) : gas}
+    // save point: ${data.field8 ? parseInt(data.field8) : savePoint}`);
+    //                 }
+    //             })
+    //             .catch(error => console.error("Error fetching latest values:", error));
+    //     };
 
     // Fetch latest values every 10 seconds
     // useEffect(() => {
@@ -109,34 +111,36 @@ function App() {
 
     return (
         <div>
-            <div className="Heading"> 
+            <div className="Heading">
                 <p>Home Automation</p>
             </div>
+
             <br /><br />
 
             <div className="main-div">
 
-            <Location
-                latitude={latitude}
-                longitude={longitude}
-                setLatitude={setLatitude}
-                setLongitude={setLongitude}
-            />
+                <Location
+                    latitude={latitude}
+                    longitude={longitude}
+                    setLatitude={setLatitude}
+                    setLongitude={setLongitude}
+                />
 
-            <br />
+                <br />
 
-            <RGB rgb={rgb} setRgb={setRgb} savePoint={savePoint} setSavePoint={setSavePoint} />
+                <RGB rgb={rgb} setRgb={setRgb} savePoint={savePoint} setSavePoint={setSavePoint} />
 
-            <br />
+                <br />
 
-            <Gas readApiKey={ReadApiKey} channelId={channelId} gas={gas} setGas={setGas} />
+                <Gas GasreadApiKey={GasReadApiKey} GaschannelId={GaschannelId} gas={gas} setGas={setGas} />
 
 
             </div>
-            
 
 
-          
+
+
+
         </div>
     );
 

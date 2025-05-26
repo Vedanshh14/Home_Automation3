@@ -47,8 +47,8 @@ function App() {
             &field3=${gas ?? 0}
             &field4=0
             &field5=${rgb.r ?? 0}
-            &field6=${rgb.g ?? 0}
-            &field7=${rgb.b ?? 0}
+            &field6=${rgb.b ?? 0}
+            &field7=${rgb.g ?? 0}
             &field8=${savePoint ?? 0}`.replace(/\s+/g, ''); // Removing extra spaces
 
         fetch(url)

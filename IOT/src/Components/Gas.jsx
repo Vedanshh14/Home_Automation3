@@ -40,6 +40,7 @@ function Gas({ GasreadApiKey, GaschannelId, gas, setGas }) {
     // Effect to handle sound based on gas status
     useEffect(() => {
         if (beepSound) {
+          
             if (gas === 1) {
                 beepSound.loop = true;
                 beepSound.play().catch(err => console.log("Audio play error:", err));
@@ -47,7 +48,7 @@ function Gas({ GasreadApiKey, GaschannelId, gas, setGas }) {
                 beepSound.pause();
                 beepSound.currentTime = 0; // Reset sound
             }
-        }
+    }
     }, [gas, beepSound]); // Now this runs whenever gas changes
 
     // Fetch gas data every 2 seconds
